@@ -2,6 +2,10 @@ import { fileURLToPath, URL } from "node:url";
 import { defineConfig } from "vite";
 import legacy from "@vitejs/plugin-legacy";
 import vue2 from "@vitejs/plugin-vue2";
+// import { createHtmlPlugin } from "vite-plugin-html";
+// const getViteEnv = (mode, target) => {
+//     return loadEnv(mode, process.cwd())[target];
+// };
 
 export default defineConfig({
   base: "./",
@@ -33,7 +37,7 @@ export default defineConfig({
   },
   build: {
     // 设置最终构建的浏览器兼容目标
-    target: "es2015",
+    target: "esnext",
     // 构建后是否生成 source map 文件
     sourcemap: false,
     //  chunk 大小警告的限制（以 kbs 为单位）

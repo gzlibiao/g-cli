@@ -1,6 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import { routes } from "../common/routes";
+import { routes } from "./interface";
 
 Vue.use(VueRouter);
 

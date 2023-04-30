@@ -110,16 +110,16 @@ export default defineConfig(({ mode }: ConfigEnv) => {
       })
     ],
     resolve: {
-      // extensions: [".ts", ".vue", ".tsx", ".jsx", ".js", ".json"],
       alias: {
         "@": path.resolve(__dirname, "./src")
+        // "@": fileURLToPath(new URL("./src", import.meta.url)),
       }
     },
     css: {
       preprocessorOptions: {
         // 给 sass-loader 传递选项
         scss: {// additionalData 的值就是要注入的字符串
-          // additionalData: "@import \"@/assets/styles/common.scss\";"
+          additionalData: "@import \"@/assets/styles/common.scss\";"
         }
       }
     },
@@ -132,7 +132,7 @@ export default defineConfig(({ mode }: ConfigEnv) => {
       proxy: { // 自定义代理规则
         // 设置代理，根据项目实际情况配置
         "/api": {
-          target: "http://boot3.jeecg.com/jeecgboot",// https://nest-api.buqiyuan.site/api/admin/
+          target: "",// https://nest-api.buqiyuan.site/api/admin/
           changeOrigin: true,
           secure: false,
           rewrite: (path: string) => path.replace("/api/", "/")

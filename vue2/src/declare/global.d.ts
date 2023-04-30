@@ -20,10 +20,11 @@ declare module "axios" {
     "device-id": string; // 设备ID，由前端根据设备信息生成
   }
 }
-declare module "gz-sdk" {
-  import type * as sdk from "gz-sdk";
-  export default sdk;
-}
+// declare module "gz-sdk" {
+//   import * as sdk from "gz-sdk";
+//   export { fetch } from "gz-sdk";
+//   export default sdk;
+// }
 
 declare module "vue-router" {
 

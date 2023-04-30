@@ -1,24 +1,10 @@
-// import { localStorage } from "gz-sdk";
-
-export const STORE_TOKEN_KEY = "STORE_TOKEN_KEY";
+const TOKEN = Symbol();
 // 设置token
 export const setToken = (token: string): void => {
-  localStorage.set(STORE_TOKEN_KEY, token);
+  localStorage.setItem(TOKEN.toString(), token);
 };
 
 // 获取token
 export const getToken = (): string => {
-  return localStorage.get(STORE_TOKEN_KEY.toString());
-};
-
-interface IResult<T> {
-  success: boolean,
-  data: T,
-}
-
-export const toResult = <T>(data: T, success = true): IResult<T> => {
-  return {
-    success,
-    data
-  };
+  return localStorage.getItem(TOKEN.toString()) || "";
 };

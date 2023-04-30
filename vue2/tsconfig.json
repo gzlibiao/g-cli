@@ -16,22 +16,24 @@
       "vite/client",
       "vue"
     ],
-    "baseUrl": ".",  // 这里需要配置
+    "baseUrl": "./",  // 这里需要配置
     "paths": {
-      "@/*": ["src/*"]  // 这里需要配置
+      "@/*": ["./src/*"]  // 这里需要配置
     },
     "lib": [
       "esnext",
       "dom",
       "dom.iterable",
       "ScriptHost"
-    ]
+    ],
   },
   "include": [
-    "src/**/*.d.ts",
-    "src/**/*.ts",
-    "src/**/*.tsx",
-    "src/**/*.vue",
+    "**/*.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/**/*.vue",
+    "tests/**/*.ts",
+    "tests/**/*.tsx"
   ],
   "exclude": [
     "node_modules",
@@ -41,14 +43,7 @@
   ],
   "vueCompilerOptions": {
     "extensions": [
-//      ".vue",
-//      ".ts",
-//      ".js",
-//      ".tsx",
-//      ".json",
-//      "vue",
-//      "*.vue",
-//      "ts"
+      ".vue"
     ],
     "target": 2.7
   }

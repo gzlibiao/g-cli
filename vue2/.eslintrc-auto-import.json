@@ -5,6 +5,7 @@
     "ComputedRef": true,
     "EffectScope": true,
     "InjectionKey": true,
+    "Message": true,
     "PropType": true,
     "Ref": true,
     "VNode": true,

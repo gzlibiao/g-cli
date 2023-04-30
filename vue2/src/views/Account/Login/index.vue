@@ -87,18 +87,20 @@ const rules = reactive({
 });
 
 const submitForm = async () => {
+  console.log(refForm, "refForm", refForm.value);
   const validRes = await refForm.value.validate().catch(console.warn);
-  console.log(validRes, refForm, "refForm", refForm.value);
-  if (validRes) {
-    const result = await login().catch(Message.error);
-
-    if (result.success) {
-      Message.success("登录成功");
-      if (result) {
-        location.href = "/";
-      }
-    }
+  if (!validRes) {
+    return;
   }
+  console.log(validRes, "res2");
+  const result = await login().catch(() => Message.error(""));
+  // if (result) {
+  //   location.href = "/";
+  // }
+  if (result) {
+    Message.success("登录成功");
+  }
+  console.log(result, "result");
 };
 
 </script>

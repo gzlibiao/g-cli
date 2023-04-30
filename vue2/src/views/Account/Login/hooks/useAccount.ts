@@ -1,5 +1,5 @@
 import { login as loginApi, getCodeInfo } from "@/api/user";
-import { setToken, getToken, toResult } from "@/utils/core";
+import { setToken, getToken } from "@/utils/core";
 
 const user: {
   value: string | null | {}
@@ -69,14 +69,14 @@ export const useUser = (): {} => {
 
   async function login() {
     console.log(loginModel);
-    let res: { success: boolean, result: any, message: string } = await loginApi(loginModel);
+    let res = await loginApi(loginModel);
     console.log(res);
     if (res.success) {
       const result = res.result;
       user.value = { token: result.token, username: result.username };
       setToken(res.result.token);
       // Message.success("登录成功");
-      return Promise.resolve(toResult(user));
+      return Promise.resolve(user);
     }
 
     return Promise.reject(res.message);

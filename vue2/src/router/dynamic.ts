@@ -3,7 +3,7 @@
 // import { treeDataForEach } from '@/utils/treeData';
 
 // 引入 views 文件夹下所有 vue 文件，用户根据用户菜单权限构建动态路由
-const modules = import.meta.glob('@/views/**/*.vue');
+// const modules = import.meta.glob('@/views/**/*.vue');
 
 // 根据当前用户菜单创建动态路由
 // menuTreeData: Menu[]

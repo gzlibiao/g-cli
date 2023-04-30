@@ -15,8 +15,6 @@
 import Header from '@/layout/Header.vue'
 import Aside from '@/layout/Aside.vue'
 
-
-
 // STATE
 
 // FUNCTION

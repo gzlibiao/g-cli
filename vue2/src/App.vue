@@ -1,10 +1,8 @@
-<script setup lang="ts" name="App">
-</script>
-
 <template>
-<!--    <router-view/>-->
-    <div>afsdsd</div>
+    <router-view />
 </template>
+<script setup lang="ts" name="App">
 
+</script>
 <style scoped lang="scss">
 </style>

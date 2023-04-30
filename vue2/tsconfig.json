@@ -11,26 +11,36 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
-    "baseUrl": ".",
     "types": [
       "node",
       "vite/client",
-      "vue",
+      "vue"
     ],
+    "baseUrl": "./",  // 这里需要配置
     "paths": {
-      "@/*": ["./src*"]
+      "@/*": ["./src/*"]  // 这里需要配置
     },
-    "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
+    "lib": [
+      "esnext",
+      "dom",
+      "dom.iterable",
+      "ScriptHost"
+    ],
   },
   "include": [
     "**/*.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "**/*.vue",
+    "**/**/*.vue",
     "tests/**/*.ts",
     "tests/**/*.tsx"
   ],
-  "exclude": ["node_modules", "mock", "build", "dist"],
+  "exclude": [
+    "node_modules",
+    "mock",
+    "build",
+    "dist"
+  ],
   "vueCompilerOptions": {
     "extensions": [
       ".vue"

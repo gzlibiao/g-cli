@@ -1,16 +1,19 @@
 <template>
-  <div class="container">
-      index
-      <el-button>fsd</el-button>
+  <div>
+    index.vue
   </div>
 </template>
 
-<script lang="ts" setup name="Home">
+<script setup lang="ts" name="Home">
+// LIB
 
+// STATE
+
+// FUNCTION
+
+// EVENT
 </script>
 
-<style lang="css" scoped>
-.container{
+<style scoped lang="scss">
 
-}
 </style>

@@ -7,7 +7,8 @@ export const ROUTE_NAME_MAP = {
 export const routes = [
     {
         path: "/",
-        redirect: "/home/index"
+        // redirect: "/home/index"
+        redirect: "/demo"
     },
     {
         path: "/404",
@@ -16,6 +17,10 @@ export const routes = [
     {
         path: "/demo",
         component: () => import("@/views/Demo/index.vue")
+    },
+    {
+        path: "/login",
+        component: () => import("@/views/Account/Login/index.vue")
     },
     {
         path: "/home",

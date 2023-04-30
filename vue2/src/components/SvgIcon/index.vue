@@ -1,38 +1,30 @@
 <template>
-    <div>
-
-        <svg class="svg-icon" :class="[iconClass,iconName,svgClass]">
-            <use :xlink:href="'moon'"></use>
-        </svg>
-        {{iconClass}}
-    </div>
+  <svg v-on="$listeners" v-bind="$attrs" :class="svgClass" aria-hidden="true">
+    <use :xlink:href="iconName" />
+  </svg>
 </template>
+
 <script setup lang="ts" name="SvgIcon">
 const props = defineProps({
-    iconClass: {
-        type: String,
-        required: true
-    },
-    className: {
-        type: String
-    }
+  icon: {
+    type: String,
+    required: true
+  },
+  className: {
+    type: String,
+    default: () => ""
+  }
 });
-const {className, iconClass} = toRefs(props);
 
 const iconName = computed(() => {
-    return `#icon-${iconClass}`
-})
-
+  return `#icon-${props.icon}`;
+});
 const svgClass = computed(() => {
-    return className
-})
-
+  return props.className ? "svg-icon " + props.className : "svg-icon";
+});
 </script>
-<style lang="scss" scoped>
+<style scoped lang="scss">
 .svg-icon {
-  width: 24px;
-  height: 24px;
   fill: currentColor;
-  overflow: hidden;
 }
 </style>

@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "element-ui": "^2.15.13",
-    "gz-sdk": "1.2.1",
+    "gz-sdk": "1.2.2",
     "pinia": "^2.0.16",
     "sortablejs": "^1.15.0",
     "unplugin-vue-components": "^0.24.1",

@@ -8,3 +8,15 @@ export const setToken = (token: string): void => {
 export const getToken = (): string => {
   return localStorage.getItem(TOKEN.toString()) || "";
 };
+
+interface IResult<T> {
+  success: boolean,
+  data: T,
+}
+
+export const toResult = <T>( data: T,success = true): IResult<T> => {
+  return {
+    success,
+    data
+  };
+};

@@ -12,8 +12,7 @@
         <el-menu-item
           v-for="(subMenu, subIdx) in menu.children"
           :index="subMenu.id"
-        >{{ subMenu.text }}
-        </el-menu-item>
+        >{{ subMenu.text }}</el-menu-item>
       </el-submenu>
     </el-menu>
   </aside>
@@ -27,16 +26,7 @@ const state = reactive({
   menuList: []
 });
 
-interface IMenu {
-  text: string,
-  path: string,
-  icon: string,
-  key: string,
-  name: string,
-  children?: IMenu[]
-}
-
-function buildMenu<T>(menuItem: any): IMenu {
+function buildMenu(menuItem) {
   const children = menuItem.children?.map(buildMenu);
   return {
     text: menuItem.meta.title,

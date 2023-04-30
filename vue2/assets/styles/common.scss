@@ -1,0 +1,1084 @@
+//变量
+$prefix: bo; //前缀
+$enableOwnTheme: true; //启用自定义主题
+$enableResponsive: true; //启用响应式
+
+$ownTheme: (
+	(
+		theme: 'transparent',
+		rgb: transparent,
+	),
+	(
+		theme: 'primary1',
+		rgb: #daf3ff,
+	),
+	(
+		theme: 'primary2',
+		rgb: #b6e4ff,
+	),
+	(
+		theme: 'primary3',
+		rgb: #91d1ff,
+	),
+	(
+		theme: 'primary4',
+		rgb: #76bfff,
+	),
+	(
+		theme: 'primary5',
+		rgb: #49a2ff,
+	),
+	(
+		theme: 'primary6',
+		rgb: #357edb,
+	),
+	(
+		theme: 'primary7',
+		rgb: #245eb7,
+	),
+	(
+		theme: 'primary8',
+		rgb: #174193,
+	),
+	(
+		theme: 'primary9',
+		rgb: #0e2d7a,
+	),
+	(
+		theme: 'success1',
+		rgb: #e2fee7,
+	),
+	(
+		theme: 'success2',
+		rgb: #c6fdd5,
+	),
+	(
+		theme: 'success3',
+		rgb: #a8f9c7,
+	),
+	(
+		theme: 'success4',
+		rgb: #90f3c0,
+	),
+	(
+		theme: 'success5',
+		rgb: #6cebb6,
+	),
+	(
+		theme: 'success6',
+		rgb: #4ecaa2,
+	),
+	(
+		theme: 'success7',
+		rgb: #36a990,
+	),
+	(
+		theme: 'success8',
+		rgb: #22887c,
+	),
+	(
+		theme: 'success9',
+		rgb: #14706f,
+	),
+	(
+		theme: 'info1',
+		rgb: #e2ebff,
+	),
+	(
+		theme: 'info2',
+		rgb: #c5d6ff,
+	),
+	(
+		theme: 'info3',
+		rgb: #a9bfff,
+	),
+	(
+		theme: 'info4',
+		rgb: #93adff,
+	),
+	(
+		theme: 'info5',
+		rgb: #708fff,
+	),
+	(
+		theme: 'info6',
+		rgb: #516cdb,
+	),
+	(
+		theme: 'info7',
+		rgb: #384eb7,
+	),
+	(
+		theme: 'info8',
+		rgb: #233493,
+	),
+	(
+		theme: 'info9',
+		rgb: #15227a,
+	),
+	(
+		theme: 'warning1',
+		rgb: #fffacc,
+	),
+	(
+		theme: 'warning2',
+		rgb: #fff499,
+	),
+	(
+		theme: 'warning3',
+		rgb: #ffec66,
+	),
+	(
+		theme: 'warning4',
+		rgb: #ffe43f,
+	),
+	(
+		theme: 'warning5',
+		rgb: #ffd800,
+	),
+	(
+		theme: 'warning6',
+		rgb: #dbb600,
+	),
+	(
+		theme: 'warning7',
+		rgb: #b79500,
+	),
+	(
+		theme: 'warning8',
+		rgb: #937600,
+	),
+	(
+		theme: 'warning9',
+		rgb: #7a5f00,
+	),
+	(
+		theme: 'danger1',
+		rgb: #ffe6d7,
+	),
+	(
+		theme: 'danger2',
+		rgb: #ffc8b0,
+	),
+	(
+		theme: 'danger3',
+		rgb: #ffa288,
+	),
+	(
+		theme: 'danger4',
+		rgb: #ff7f6b,
+	),
+	(
+		theme: 'danger5',
+		rgb: #ff443a,
+	),
+	(
+		theme: 'danger6',
+		rgb: #db2a30,
+	),
+	(
+		theme: 'danger7',
+		rgb: #b71d2f,
+	),
+	(
+		theme: 'danger8',
+		rgb: #93122c,
+	),
+	(
+		theme: 'danger9',
+		rgb: #7a0b2a,
+	),
+	(
+		theme: 'secondary1',
+		rgb: #f1f6f8,
+	),
+	(
+		theme: 'secondary2',
+		rgb: #e4edf2,
+	),
+	(
+		theme: 'secondary3',
+		rgb: #c6d1d8,
+	),
+	(
+		theme: 'secondary4',
+		rgb: #9ea9b1,
+	),
+	(
+		theme: 'secondary5',
+		rgb: #6c757d,
+	),
+	(
+		theme: light,
+		rgb: #f8f9fa,
+	),
+	(
+		theme: dark,
+		rgb: #343a40,
+	)
+); //主题
+
+$theme: (
+	(
+		theme: 'primary',
+		rgb: #369aff,
+	),
+	(
+		theme: 'warn',
+		rgb: #ffe48d,
+	),
+	(
+		theme: 'secondary',
+		rgb: #909399,
+	),
+	(
+		theme: 'success',
+		rgb: #0fd5ab,
+	),
+	(
+		theme: 'info',
+		rgb: #d2f5ff,
+	),
+	(
+		theme: 'warning',
+		rgb: #f7aa12,
+	),
+	(
+		theme: 'danger',
+		rgb: #fa5555,
+	),
+	(
+		theme: light,
+		rgb: #f8f9fa,
+	),
+	(
+		theme: dark,
+		rgb: #343a40,
+	)
+); //主题
+
+$mSpacing: (
+	(
+		name: auto,
+		size: auto,
+	),
+	(
+		name: 0,
+		size: 0,
+	),
+	(
+		name: mini,
+		size: 2,
+		unit: px,
+	),
+	(
+		name: small,
+		size: 6,
+		unit: px,
+	),
+	(
+		name: middle,
+		size: 10,
+		unit: px,
+	),
+	(
+		name: large,
+		size: 15,
+		unit: px,
+	),
+	(
+		name: lar,
+		size: 0.5,
+		unit: rem,
+	),
+	(
+		name: mdr,
+		size: 0.35,
+		unit: rem,
+	),
+	(
+		name: smr,
+		size: 0.2,
+		unit: rem,
+	),
+	(
+		name: mir,
+		size: 0.05,
+		unit: rem,
+	)
+); //外边距范围
+
+$pSpacing: (
+	(
+		name: 0,
+		size: 0,
+	),
+	(
+		name: mini,
+		size: 2,
+		unit: px,
+	),
+	(
+		name: small,
+		size: 6,
+		unit: px,
+	),
+	(
+		name: middle,
+		size: 10,
+		unit: px,
+	),
+	(
+		name: large,
+		size: 15,
+		unit: px,
+	),
+	(
+		name: lar,
+		size: 0.5,
+		unit: rem,
+	),
+	(
+		name: mdr,
+		size: 0.35,
+		unit: rem,
+	),
+	(
+		name: smr,
+		size: 0.2,
+		unit: rem,
+	),
+	(
+		name: mir,
+		size: 0.05,
+		unit: rem,
+	)
+); //内边距范围
+
+$gap:(
+    (
+        name:mini,
+        size:2,
+        unit:px
+    ),
+    (
+        name:small,
+        size:6,
+        unit:px
+    ),
+    (
+        name:middle,
+        size:10,
+        unit:px
+    ),
+    (
+        name:large,
+        size:15,
+        unit:px
+    )
+); // 间隙
+
+$size: (
+	(
+		name: auto,
+		size: auto,
+	),
+	(
+		name: large,
+		size: 150,
+		unit: px,
+	),
+	(
+		name: middle,
+		size: 100,
+		unit: px,
+	),
+	(
+		name: small,
+		size: 60,
+		unit: px,
+	),
+	(
+		name: mini,
+		size: 20,
+		unit: px,
+	)
+); //宽高
+
+$rounded: (
+	(
+		name: mini,
+		size: 4,
+		suffix: px,
+	),
+	(
+		name: small,
+		size: 10,
+		suffix: px,
+	),
+	(
+		name: circle,
+		size: 50,
+		suffix: '%',
+	)
+); //圆角
+
+$responsive: (
+	(
+		media: sx,
+		size: 568,
+		unit: px,
+	),
+	(
+		media: sm,
+		size: 768,
+		unit: px,
+	),
+	(
+		media: md,
+		size: 992,
+		unit: px,
+	),
+	(
+		media: sl,
+		size: 1200,
+		unit: px,
+	)
+); //响应式范围
+
+$fs: (
+	(
+		name: 0,
+		size: 0,
+	),
+	(
+		name: mini,
+		size: 2,
+		unit: px,
+	),
+	(
+		name: small,
+		size: 6,
+		unit: px,
+	),
+	(
+		name: middle,
+		size: 10,
+		unit: px,
+	),
+	(
+		name: large,
+		size: 15,
+		unit: px,
+	),
+	(
+		name: lar,
+		size: 0.5,
+		unit: rem,
+	),
+	(
+		name: mdr,
+		size: 0.35,
+		unit: rem,
+	),
+	(
+		name: smr,
+		size: 0.2,
+		unit: rem,
+	),
+	(
+		name: mir,
+		size: 0.05,
+		unit: rem,
+	)
+); //文字大小
+
+$lh: (
+	(
+		name: mini,
+		size: 2,
+		unit: px,
+	),
+	(
+		name: small,
+		size: 8,
+		unit: px,
+	),
+	(
+		name: middle,
+		size: 10,
+		unit: px,
+	),
+	(
+		name: large,
+		size: 15,
+		unit: px,
+	)
+); //行高
+
+$ls: (
+	(
+		name: 0,
+		size: 0,
+		unit: '',
+	),
+	(
+		name: mini,
+		size: 2,
+		unit: px,
+	),
+	(
+		name: small,
+		size: 6,
+		unit: px,
+	),
+	(
+		name: middle,
+		size: 10,
+		unit: px,
+	),
+	(
+		name: large,
+		size: 15,
+		unit: px,
+	)
+); //文字间距
+
+//cols order比cols多一位 offset比cols少一位
+$cols: (
+	(
+		size: 1,
+	),
+	(
+		size: 2,
+	),
+	(
+		size: 3,
+	),
+	(
+		size: 4,
+	),
+	(
+		size: 5,
+	),
+	(
+		size: 6,
+	),
+	(
+		size: 7,
+	),
+	(
+		size: 8,
+	),
+	(
+		size: 9,
+	),
+	(
+		size: 10,
+	),
+	(
+		size: 11,
+	),
+	(
+		size: 12,
+	)
+);
+
+//逻辑部分
+$prefix: #{if($prefix== '', '', $prefix + '-')};
+@if $enableOwnTheme {
+	$theme: $ownTheme;
+}
+@if $enableResponsive!=true {
+	$responsive: [];
+}
+
+// 基础样式部分
+:root {
+	@each $item in $theme {
+		$t: map-get($item, theme); //主题
+		$rgb: map-get($item, rgb); //颜色
+		--#{$t}: #{$rgb};
+	}
+}
+[class*='#{$prefix}col'] {
+	position: relative;
+	width: 100%;
+	min-height: 1px;
+	padding-right: 15px;
+	padding-left: 15px;
+}
+// 文字对齐方式
+.#{$prefix}text-left {
+	text-align: left;
+}
+.#{$prefix}text-right {
+	text-align: right;
+}
+.#{$prefix}text-center {
+	text-align: center;
+}
+.#{$prefix}text-justify {
+	text-align: justify;
+}
+// display
+.#{$prefix}d-none {
+	display: none;
+}
+.#{$prefix}d-inline {
+	display: inline;
+}
+.#{$prefix}d-inline-block {
+	display: inline-block;
+}
+.#{$prefix}d-block {
+	display: block;
+}
+.#{$prefix}d-flex {
+	display: flex;
+}
+.#{$prefix}d-grid {
+	display: grid;
+}
+// 定位
+.#{$prefix}position-static {
+	position: static;
+}
+.#{$prefix}position-relative {
+	position: relative;
+}
+.#{$prefix}position-absolute {
+	position: absolute;
+}
+.#{$prefix}position-fixed {
+	position: fixed;
+}
+.#{$prefix}position-sticky {
+	position: sticky;
+}
+.#{$prefix}overflow-scroll {
+	overflow: scroll;
+}
+.#{$prefix}overflow-hidden {
+	overflow: hidden;
+}
+.#{$prefix}overflow-auto {
+	overflow: auto;
+}
+.#{$prefix}overflow-visible {
+	overflow: visible;
+}
+// 普通样式
+.#{$prefix}bn {
+	border: none;
+}
+
+.#{$prefix}nowrap {
+    white-space:nowrap;
+}
+.#{$prefix}text-ellipsis {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.#{$prefix}disabled-select {
+	pointer-events: none;
+}
+.#{$prefix}no-select {
+	user-select: none;
+}
+.#{$prefix}cursor-pointer {
+	cursor: pointer;
+}
+.#{$prefix}cursor-move {
+	cursor: move;
+}
+.#{$prefix}cursor-not {
+	cursor: not-allowed;
+}
+
+//响应式宏
+@mixin scale($prefix, $media) {
+	$media: #{if($media== '', '', $media + '-')};
+	$len: length($cols);
+	//栅格部分开始
+	.#{$prefix}#{$media}row {
+		display: -ms-flexbox;
+		display: flex;
+		-ms-flex-wrap: wrap;
+		flex-wrap: wrap;
+		margin-right: -15px;
+		margin-left: -15px;
+	}
+	.#{$prefix}#{$media}col {
+		-ms-flex-preferred-size: 0;
+		flex-basis: 0;
+		-ms-flex-positive: 1;
+		flex-grow: 1;
+		max-width: 100%;
+	}
+	.#{$prefix}col-#{$media}auto {
+		-ms-flex: 0 0 auto;
+		flex: 0 0 auto;
+		width: auto;
+		max-width: none;
+	}
+	.#{$prefix}#{$media}no-gutters {
+		margin-right: 0 !important;
+		margin-left: 0 !important;
+		[class*='#{$prefix}#{$media}col-'] {
+			padding-right: 0 !important;
+			padding-left: 0 !important;
+		}
+	}
+	.#{$prefix}order-#{$media}first {
+		-ms-flex-order: -1;
+		order: -1;
+	}
+	.#{$prefix}order-#{$media}last {
+		-ms-flex-order: $len + 1;
+		order: $len + 1;
+	}
+	@for $i from 1 through $len {
+		$item: nth($cols, $i);
+		$s: map-get($item, size);
+		.#{$prefix}col-#{$media}#{$s} {
+			-ms-flex: 0 0 100% / ($len) * $i;
+			flex: 0 0 calc(100% / $len) * $i;
+			max-width: calc(100% / $len) * $i;
+		}
+	}
+	@each $item in $cols {
+		$s: map-get($item, size);
+		$of: #{if($s==auto, 1, #{$s - 1})};
+		.#{$prefix}offset-#{$media}#{$of} {
+			@if $of!= '0' {
+				margin-left: 100% / $len  * $of;
+			}
+		}
+	}
+
+	@each $item in $gap {
+		$s: map-get($item, size);
+		$name: map-get($item, name);
+		$unit: map-get($item, unit);
+
+		.#{$prefix}gap-#{$media}#{$name} {
+		    display: flex;
+            column-gap: #{$s}#{$unit};
+            row-gap: #{$s}#{$unit};
+		}
+	}
+
+	@for $i from 0 to $len + 1 {
+		.#{$prefix}order-#{$media}#{$i} {
+			-ms-flex-order: $i;
+			order: $i;
+		}
+	}
+	.#{$prefix}flex-#{$media}row {
+		-ms-flex-direction: row;
+		flex-direction: row;
+	}
+	.#{$prefix}flex-#{$media}column {
+		-ms-flex-direction: column;
+		flex-direction: column;
+	}
+	.#{$prefix}flex-row-#{$media}reverse {
+		-ms-flex-direction: row-reverse;
+		flex-direction: row-reverse;
+	}
+	.#{$prefix}flex-column-#{$media}reverse {
+		-ms-flex-direction: column-reverse;
+		flex-direction: column-reverse;
+	}
+	.#{$prefix}flex-#{$media}wrap {
+		-ms-flex-wrap: wrap;
+		flex-wrap: wrap;
+	}
+	.#{$prefix}flex-#{$media}nowrap {
+		-ms-flex-wrap: nowrap;
+		flex-wrap: nowrap;
+	}
+	.#{$prefix}flex-wrap-#{$media}reverse {
+		-ms-flex-wrap: wrap-reverse;
+		flex-wrap: wrap-reverse;
+	}
+	.#{$prefix}flex-#{$media}fill {
+		-ms-flex: 1 1 auto;
+		flex: 1 1 auto;
+	}
+	.#{$prefix}flex-grow-#{$media}#{0} {
+		-ms-flex-positive: 0;
+		flex-grow: 0;
+	}
+	.#{$prefix}flex-grow-#{$media}#{1} {
+		-ms-flex-positive: 1;
+		flex-grow: 1;
+	}
+	.#{$prefix}flex-shrink-#{$media}#{0} {
+		-ms-flex-negative: 0;
+		flex-shrink: 0;
+	}
+	.#{$prefix}flex-shrink-#{$media}#{1} {
+		-ms-flex-negative: 1;
+		flex-shrink: 1;
+	}
+	.#{$prefix}justify-content-#{$media}start {
+		-ms-flex-pack: start;
+		justify-content: flex-start;
+	}
+	.#{$prefix}justify-content-#{$media}end {
+		-ms-flex-pack: end;
+		justify-content: flex-end;
+	}
+	.#{$prefix}justify-content-#{$media}center {
+		-ms-flex-pack: center;
+		justify-content: center;
+	}
+	.#{$prefix}justify-content-#{$media}between {
+		-ms-flex-pack: justify;
+		justify-content: space-between;
+	}
+	.#{$prefix}justify-content-#{$media}around {
+		-ms-flex-pack: distribute;
+		justify-content: space-around;
+	}
+	.#{$prefix}align-items-#{$media}start {
+		-ms-flex-align: start;
+		align-items: flex-start;
+	}
+	.#{$prefix}align-items-#{$media}end {
+		-ms-flex-align: end;
+		align-items: flex-end;
+	}
+	.#{$prefix}align-items-#{$media}center {
+		-ms-flex-align: center;
+		align-items: center;
+	}
+	.#{$prefix}align-items-#{$media}baseline {
+		-ms-flex-align: baseline;
+		align-items: baseline;
+	}
+	.#{$prefix}align-items-#{$media}stretch {
+		-ms-flex-align: stretch;
+		align-items: stretch;
+	}
+	.#{$prefix}align-content-#{$media}start {
+		-ms-flex-line-pack: start;
+		align-content: flex-start;
+	}
+	.#{$prefix}align-content-#{$media}end {
+		-ms-flex-line-pack: end;
+		align-content: flex-end;
+	}
+	.#{$prefix}align-content-#{$media}center {
+		-ms-flex-line-pack: center;
+		align-content: center;
+	}
+	.#{$prefix}align-content-#{$media}between {
+		-ms-flex-line-pack: justify;
+		align-content: space-between;
+	}
+	.#{$prefix}align-content-#{$media}around {
+		-ms-flex-line-pack: distribute;
+		align-content: space-around;
+	}
+	.#{$prefix}align-content-#{$media}stretch {
+		-ms-flex-line-pack: stretch;
+		align-content: stretch;
+	}
+	.#{$prefix}align-self-#{$media}auto {
+		-ms-flex-item-align: auto;
+		align-self: auto;
+	}
+	.#{$prefix}align-self-#{$media}start {
+		-ms-flex-item-align: start;
+		align-self: flex-start;
+	}
+	.#{$prefix}align-self-#{$media}end {
+		-ms-flex-item-align: end;
+		align-self: flex-end;
+	}
+	.#{$prefix}align-self-#{$media}center {
+		-ms-flex-item-align: center;
+		align-self: center;
+	}
+	.#{$prefix}align-self-#{$media}baseline {
+		-ms-flex-item-align: baseline;
+		align-self: baseline;
+	}
+	.#{$prefix}align-self-#{$media}stretch {
+		-ms-flex-item-align: stretch;
+		align-self: stretch;
+	}
+	//栅格部分结束
+
+	// 边距部分开始
+	@each $item in $pSpacing {
+		$s: map-get($item, size);
+		$unit: map-get($item, unit);
+		$name: map-get($item, name);
+		.#{$prefix}p-#{$media}#{$name} {
+			padding: #{$s}#{$unit};
+		}
+		.#{$prefix}px-#{$media}#{$name} {
+			padding-left: 0 #{$s}#{$unit};
+			padding-right: 0 #{$s}#{$unit};
+		}
+		.#{$prefix}py-#{$media}#{$name} {
+			padding-top: #{$s}#{$unit} 0;
+			padding-bottom: #{$s}#{$unit} 0;
+		}
+		.#{$prefix}pt-#{$media}#{$name} {
+			padding-top: #{$s}#{$unit};
+		}
+		.#{$prefix}pr-#{$media}#{$name} {
+			padding-right: #{$s}#{$unit};
+		}
+		.#{$prefix}pb-#{$media}#{$name} {
+			padding-bottom: #{$s}#{$unit};
+		}
+		.#{$prefix}pl-#{$media}#{$name} {
+			padding-left: #{$s}#{$unit};
+		}
+	}
+
+	@each $item in $mSpacing {
+		$name: map-get($item, name);
+		$s: map-get($item, size);
+		$unit: map-get($item, unit);
+
+		.#{$prefix}m-#{$media}#{$name} {
+			margin: #{$s}#{$unit};
+		}
+		.#{$prefix}mx-#{$media}#{$name} {
+			margin-left: 0 #{$s}#{$unit};
+			margin-right: 0 #{$s}#{$unit};
+		}
+		.#{$prefix}my-#{$media}#{$name} {
+			margin-top: #{$s}#{$unit} 0;
+			margin-bottom: #{$s}#{$unit} 0;
+		}
+		.#{$prefix}mt-#{$media}#{$name} {
+			margin-top: #{$s}#{$unit};
+		}
+		.#{$prefix}mr-#{$media}#{$name} {
+			margin-right: #{$s}#{$unit};
+		}
+		.#{$prefix}mb-#{$media}#{$name} {
+			margin-bottom: #{$s}#{$unit};
+		}
+		.#{$prefix}ml-#{$media}#{$name} {
+			margin-left: #{$s}#{$unit};
+		}
+	}
+	//边距部分结束
+} //响应式部分结束
+
+@each $item in $size {
+	$s: map-get($item, size); //size
+	$name: map-get($item, name);
+	$unit: map-get($item, unit);
+	.#{$prefix}w-#{$name} {
+		width: #{$s}#{$unit};
+	}
+	.#{$prefix}h-#{$name} {
+		height: #{$s}#{$unit};
+	}
+}
+
+@each $item in $theme {
+	$t: map-get($item, theme); //主题
+	$rgb: map-get($item, rgb); //颜色
+	.#{$prefix}#{$t} {
+		color: $rgb;
+	}
+	.#{$prefix}bg-#{$t} {
+		background-color: $rgb;
+	}
+	.#{$prefix}b-#{$t} {
+		border: $rgb solid 1px;
+	}
+	.#{$prefix}bt-#{$t} {
+		border-top: $rgb solid 1px;
+	}
+	.#{$prefix}br-#{$t} {
+		border-right: $rgb solid 1px;
+	}
+	.#{$prefix}bb-#{$t} {
+		border-bottom: $rgb solid 1px;
+	}
+	.#{$prefix}bl-#{$t} {
+		border-left: $rgb solid 1px;
+	}
+}
+
+@include scale($prefix, '');
+
+@each $item in $responsive {
+	$s: map-get($item, size);
+	$media: map-get($item, media);
+	$unit: map-get($item, unit);
+	@media (min-width: $s+$unit) {
+		@include scale($prefix, $media);
+	}
+}
+
+//圆角
+@each $item in $rounded {
+	$name: map-get($item, name);
+	$s: map-get($item, size); //size
+	$suffix: map-get($item, suffix);
+	.#{$prefix}rounded-#{$name} {
+		border-radius: #{$s}#{$suffix};
+	}
+	.#{$prefix}rounded-br-#{$name} {
+		border-bottom-right-radius: #{$s}#{$suffix};
+	}
+	.#{$prefix}rounded-bl-#{$name} {
+		border-bottom-left-radius: #{$s}#{$suffix};
+	}
+	.#{$prefix}rounded-tl-#{$name} {
+		border-top-left-radius: #{$s}#{$suffix};
+	}
+	.#{$prefix}rounded-tr-#{$name} {
+		border-top-right-radius: #{$s}#{$suffix};
+	}
+}
+
+//粗体
+@for $i from 1 through 9 {
+	.#{$prefix}fw-#{$i} {
+		font-weight: #{$i}#{0}#{0};
+	}
+}
+
+@each $item in $fs {
+	$s: map-get($item, size);
+	$name: map-get($item, name);
+	$unit: map-get($item, unit);
+	.#{$prefix}fs-#{$name} {
+		font-size: #{$s}#{$unit};
+	}
+}
+
+@each $item in $ls {
+	$s: map-get($item, size);
+	$name: map-get($item, name);
+	$unit: map-get($item, unit);
+	.#{$prefix}ls-#{$name} {
+		letter-spacing: #{$s}#{$unit};
+	}
+}
+
+@each $item in $lh {
+	$s: map-get($item, size);
+	$unit: map-get($item, unit);
+	$name: map-get($item, name);
+	.#{$prefix}lh-#{$name} {
+		line-height: #{$s}#{$unit};
+	}
+}

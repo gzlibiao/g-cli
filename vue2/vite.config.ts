@@ -50,11 +50,11 @@ export default defineConfig(({ mode }: ConfigEnv) => {
         eslintrc: {
           enabled: true	// 启用自动生成.eslintrc
         },
-        dts: "./src/declare/auto-imports.d.ts" // 可以自定义文件生成的位置，默认是根目录下
+        dts: "./declare/auto-imports.d.ts" // 可以自定义文件生成的位置，默认是根目录下
       }),
       Components({
         deep: true,
-        dts: "./src/declare/components.d.ts", // 可以自定义文件生成的位置，默认是根目录下
+        dts: "./declare/components.d.ts", // 可以自定义文件生成的位置，默认是根目录下
         resolvers: [ElementUiResolver()]
       }),
       vue({
@@ -132,7 +132,7 @@ export default defineConfig(({ mode }: ConfigEnv) => {
       proxy: { // 自定义代理规则
         // 设置代理，根据项目实际情况配置
         "/api": {
-          target: "",// https://nest-api.buqiyuan.site/api/admin/
+          target: "http://boot3.jeecg.com/jeecgboot",// https://nest-api.buqiyuan.site/api/admin/
           changeOrigin: true,
           secure: false,
           rewrite: (path: string) => path.replace("/api/", "/")

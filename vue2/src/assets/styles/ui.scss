@@ -110,38 +110,41 @@
   white-space: nowrap;
 }
 
-.card {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    min-width: 0;
-    word-wrap: break-word;
-    background-color: #fff;
-    background-clip: border-box;
-    margin-bottom: 28px;
-    border-radius: 15px;
-    border: none;
-    box-shadow: 0 1px 3px 0 rgba(54,74,99,.05);
+.bo-card {
+  border-radius: 4px;
+  border: 1px solid #ebeef5;
+  background-color: #fff;
+  overflow: hidden;
+  color: #303133;
+  transition: .3s;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .1);
+  padding:12px 20px;
+
+  &.hover {
+    box-shadow: none;
+    &:hover {
+      box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .1);
+    }
+  }
 }
 
 .drawing__text {
-    font-family: "PingFang SC";
-    fill: none;
-    stroke: url("#geekColor");
-    stroke-width: 1;
-    stroke-dasharray: 10 800;
-    stroke-dashoffset: 10;
-    animation: 3s linear 0s drawing
-      forwards infinite;
-  }
+  font-family: "PingFang SC";
+  fill: none;
+  stroke: url("#geekColor");
+  stroke-width: 1;
+  stroke-dasharray: 10 800;
+  stroke-dashoffset: 10;
+  animation: 3s linear 0s drawing forwards infinite;
+}
 
-  /* 绘画动画 */
-  @keyframes drawing {
-    to {
-      stroke-dasharray: 800;
-      stroke-dashoffset: 0;
-    }
+/* 绘画动画 */
+@keyframes drawing {
+  to {
+    stroke-dasharray: 800;
+    stroke-dashoffset: 0;
   }
+}
 
 
 .material.input__box {
@@ -184,12 +187,12 @@
 
 .material .input__fill:not(:placeholder-shown) ~ .input__label,
 .material .input__fill:focus ~ .input__label {
-  text-shadow:0 0 1px rgba(9,9,9,.1);
+  text-shadow: 0 0 1px rgba(9, 9, 9, .1);
   transform: scale(0.75) translate(-20px, -20px);
   color: #00d1a4;
 }
 
-img{
+img {
   image-rendering: optimizeSpeed;
   image-rendering: -webkit-crisp-edges;
   /*-webkit-optimize-contrast*/

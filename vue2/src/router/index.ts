@@ -3,7 +3,6 @@ import VueRouter from "vue-router";
 import { routes } from "./interface";
 Vue.use(VueRouter);
 
-
 const router = new VueRouter({
   mode: "history",
   base: '/',//import.meta.env.VITE_APP_BASE_URL
@@ -12,6 +11,7 @@ const router = new VueRouter({
   },
   routes,
 });
+
 router.beforeEach(async (to, from, next) => {
   // const userStore = useUserStore();
 

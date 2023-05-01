@@ -69,7 +69,7 @@ export const useUser = (): {} => {
 
   async function login() {
     console.log(loginModel);
-    let res = await loginApi(loginModel);
+    let res: { success: boolean, result: any, message: string } = await loginApi(loginModel);
     console.log(res);
     if (res.success) {
       const result = res.result;

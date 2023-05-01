@@ -50,11 +50,11 @@ export default defineConfig(({ mode }: ConfigEnv) => {
         eslintrc: {
           enabled: true	// 启用自动生成.eslintrc
         },
-        dts: "./declare/auto-imports.d.ts" // 可以自定义文件生成的位置，默认是根目录下
+        dts: "./src/declare/auto-imports.d.ts" // 可以自定义文件生成的位置，默认是根目录下
       }),
       Components({
         deep: true,
-        dts: "./declare/components.d.ts", // 可以自定义文件生成的位置，默认是根目录下
+        dts: "./src/declare/components.d.ts", // 可以自定义文件生成的位置，默认是根目录下
         resolvers: [ElementUiResolver()]
       }),
       vue({

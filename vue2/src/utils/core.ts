@@ -1,12 +1,14 @@
-const TOKEN = Symbol();
+// import { localStorage } from "gz-sdk";
+
+export const STORE_TOKEN_KEY = "STORE_TOKEN_KEY";
 // 设置token
 export const setToken = (token: string): void => {
-  localStorage.setItem(TOKEN.toString(), token);
+  localStorage.set(STORE_TOKEN_KEY, token);
 };
 
 // 获取token
 export const getToken = (): string => {
-  return localStorage.getItem(TOKEN.toString()) || "";
+  return localStorage.get(STORE_TOKEN_KEY.toString());
 };
 
 interface IResult<T> {
@@ -14,7 +16,7 @@ interface IResult<T> {
   data: T,
 }
 
-export const toResult = <T>( data: T,success = true): IResult<T> => {
+export const toResult = <T>(data: T, success = true): IResult<T> => {
   return {
     success,
     data

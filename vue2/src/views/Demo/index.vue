@@ -1,6 +1,7 @@
-<script setup lang="ts" name="Demo">
+<script setup lang="tsx" name="Demo">
 // LIB
 import { ThemeEnum, useTheme } from "@/store/modules/theme";
+import { useRoute } from "../../../declare/auto-imports";
 
 // STATE
 const stateThme = useTheme();
@@ -48,6 +49,27 @@ function setting() {
   console.log("setting");
 }
 
+const container = ref();
+import TestVue1 from "./TestVue.vue";
+import TestClass1 from "./TestClass";
+import Vue from "vue";
+
+const TestVue = Vue.extend(TestVue1);
+const TestClass = Vue.extend(TestClass1||{
+  data() {
+    return {
+      text: 1
+    };
+  },
+  render() {
+    return h("div", "abc1");
+  },
+  mounted() {
+    console.log("com");
+    console.log("this.text");
+  }
+});
+// const CV=new ComVue()
 </script>
 
 <template>
@@ -92,7 +114,10 @@ function setting() {
 
 
       <div class="body">
-        <router-view />
+        <div ref="container">
+          <TestVue />=>
+          <TestClass />
+        </div>
       </div>
     </main>
   </div>

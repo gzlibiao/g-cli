@@ -260,14 +260,6 @@ $theme: (
 
 $mSpacing: (
         (
-                name: auto,
-                size: auto,
-        ),
-        (
-                name: 0,
-                size: 0,
-        ),
-        (
                 name: mini,
                 size: 4,
                 unit: px,
@@ -306,14 +298,18 @@ $mSpacing: (
                 name: mir,
                 size: 0.05,
                 unit: rem,
-        )
-); //外边距范围
-
-$pSpacing: (
+        ),
+        (
+                name: auto,
+                size: auto,
+        ),
         (
                 name: 0,
                 size: 0,
         ),
+); //外边距范围
+
+$pSpacing: (
         (
                 name: mini,
                 size: 2,
@@ -353,6 +349,10 @@ $pSpacing: (
                 name: mir,
                 size: 0.05,
                 unit: rem,
+        ),
+        (
+                name: 0,
+                size: 0,
         )
 ); //内边距范围
 
@@ -955,12 +955,12 @@ $prefix: #{if($prefix== '', '', $prefix + '-')};
       padding: #{$s}#{$unit};
     }
     .#{$prefix}px-#{$media}#{$name} {
-      padding-left: 0 #{$s}#{$unit};
-      padding-right: 0 #{$s}#{$unit};
+      padding-left: #{$s}#{$unit};
+      padding-right: #{$s}#{$unit};
     }
     .#{$prefix}py-#{$media}#{$name} {
-      padding-top: #{$s}#{$unit} 0;
-      padding-bottom: #{$s}#{$unit} 0;
+      padding-top: #{$s}#{$unit};
+      padding-bottom: #{$s}#{$unit};
     }
     .#{$prefix}pt-#{$media}#{$name} {
       padding-top: #{$s}#{$unit};
@@ -985,12 +985,12 @@ $prefix: #{if($prefix== '', '', $prefix + '-')};
       margin: #{$s}#{$unit};
     }
     .#{$prefix}mx-#{$media}#{$name} {
-      margin-left: 0 #{$s}#{$unit};
-      margin-right: 0 #{$s}#{$unit};
+      margin-left: #{$s}#{$unit};
+      margin-right: #{$s}#{$unit};
     }
     .#{$prefix}my-#{$media}#{$name} {
-      margin-top: #{$s}#{$unit} 0;
-      margin-bottom: #{$s}#{$unit} 0;
+      margin-top: #{$s}#{$unit};
+      margin-bottom: #{$s}#{$unit};
     }
     .#{$prefix}mt-#{$media}#{$name} {
       margin-top: #{$s}#{$unit};

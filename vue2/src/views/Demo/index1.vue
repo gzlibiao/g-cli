@@ -1,12 +1,11 @@
 <template>
   <div>
-    demo
-<!--    <TestComponent v-for="(d,idx) in dataList"-->
-<!--                   :key="d.id"-->
-<!--                   :text="d.text"-->
-<!--                   :id="d.id"-->
-<!--                   :onload="idx===dataList.length-1?show:null"-->
-<!--    />-->
+    <TestComponent v-for="(d,idx) in dataList"
+                   :key="d.id"
+                   :text="d.text"
+                   :id="d.id"
+                   :onload="idx===dataList.length-1?show:null"
+    />
     <!--    <div v-for="item in dataList">{{item}}</div>-->
   </div>
 </template>
@@ -14,6 +13,7 @@
 <script setup lang="ts">
 
 const dataList = ref<any[]>([]);
+
 function show() {
   console.log("show");
 }

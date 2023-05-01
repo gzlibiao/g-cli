@@ -1,4 +1,4 @@
-import { login as loginApi, getCodeInfo } from "@/api/user";
+import { login as loginApi, getCodeInfo } from "@/api/system/user";
 import { setToken, getToken, toResult } from "@/utils/core";
 
 const user: {

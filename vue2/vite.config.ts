@@ -29,7 +29,40 @@ export default defineConfig(({ mode }: ConfigEnv) => {
       }),
       VueSetupExtend(),
       AutoImport({
-        imports: ["vue", "vue-router"],
+        imports: [
+          "vue",
+          "vue-router",
+          "pinia",
+          {
+            // named imports
+            "@vueuse/core": [
+              // import { useMouse } from '@vueuse/core',
+              "useMouse",
+              // alias
+              // import { useFetch as useMyFetch } from '@vueuse/core',
+              ["useFetch", "useMyFetch"]
+            ],
+            "axios": [
+              // default imports
+              ["default", "axios"] // import { default as axios } from 'axios',
+            ],
+            "gz-sdk": [
+              ["default", "GDK"]
+            ],
+            "lodash": [
+              ["default", "lodash"]
+            ],
+            vue: [
+              // "Vue",
+              ["default", "Vue"]
+            ]
+            // ,
+            // "[package-name]": [
+            //   "[import-names]",
+            //   // alias
+            //   ["[from]", "[alias]"]
+            // ]
+          }],
         include: [
           /\.[tj]sx?$/, // .ts, .tsx, .js, .jsx
           /\.vue$/,
@@ -48,13 +81,15 @@ export default defineConfig(({ mode }: ConfigEnv) => {
           }
         }, ElementUiResolver()],
         eslintrc: {
+          globalsPropValue: true,
+          filepath: "./.eslintrc-auto-import.json",
           enabled: true	// 启用自动生成.eslintrc
         },
-        dts: "./src/declare/auto-imports.d.ts" // 可以自定义文件生成的位置，默认是根目录下
+        dts: "./src/types/auto-imports.d.ts" // 可以自定义文件生成的位置，默认是根目录下
       }),
       Components({
         deep: true,
-        dts: "./src/declare/components.d.ts", // 可以自定义文件生成的位置，默认是根目录下
+        dts: "./src/types/components.d.ts", // 可以自定义文件生成的位置，默认是根目录下
         resolvers: [ElementUiResolver()]
       }),
       vue({
@@ -110,17 +145,15 @@ export default defineConfig(({ mode }: ConfigEnv) => {
       })
     ],
     resolve: {
+      extensions: [".js", ".json", ".jsx", ".mjs", ".ts", ".tsx", ".vue"],
       alias: {
         "@": path.resolve(__dirname, "./src")
-        // "@": fileURLToPath(new URL("./src", import.meta.url)),
       }
     },
     css: {
       preprocessorOptions: {
-        // 给 sass-loader 传递选项
-        scss: {// additionalData 的值就是要注入的字符串
-          additionalData: "@import \"@/assets/styles/common.scss\";"
-        }
+        scss: { charset: false, additionalData: "@import \"@/assets/styles/common.scss\";" },
+        css: { charset: false }
       }
     },
     server: {
@@ -131,11 +164,17 @@ export default defineConfig(({ mode }: ConfigEnv) => {
       host: "0.0.0.0", // 监听所有地址
       proxy: { // 自定义代理规则
         // 设置代理，根据项目实际情况配置
-        "/api": {
+        "/sys": {
           target: "http://boot3.jeecg.com/jeecgboot",// https://nest-api.buqiyuan.site/api/admin/
           changeOrigin: true,
           secure: false,
-          rewrite: (path: string) => path.replace("/api/", "/")
+          rewrite: (path: string) => path.replace("/sys", "/")
+        },
+        "/ai": {
+          target: "https://v2.api-m.com",
+          changeOrigin: true,
+          secure: false,
+          rewrite: (path: string) => path.replace("/ai", "/")
         }
       }
     },

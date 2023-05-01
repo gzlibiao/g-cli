@@ -12,7 +12,8 @@
         <el-menu-item
           v-for="(subMenu, subIdx) in menu.children"
           :index="subMenu.id"
-        >{{ subMenu.text }}</el-menu-item>
+        >{{ subMenu.text }}
+        </el-menu-item>
       </el-submenu>
     </el-menu>
   </aside>
@@ -20,13 +21,22 @@
 </template>
 
 <script setup lang="ts" name="Aside">
-import { getMenuList } from "@/api/menu";
+import { getMenuList } from "@/api/system/menu";
 
 const state = reactive({
   menuList: []
 });
 
-function buildMenu(menuItem) {
+interface IMenu {
+  text: string,
+  path: string,
+  icon: string,
+  key: string,
+  name: string,
+  children?: IMenu[]
+}
+
+function buildMenu<T>(menuItem: any): IMenu {
   const children = menuItem.children?.map(buildMenu);
   return {
     text: menuItem.meta.title,
@@ -39,23 +49,10 @@ function buildMenu(menuItem) {
 }
 
 async function listMenu() {
-  const res = await getMenuList();
+  const res = await getMenuList().catch(Message.error);
   if (res.success) {
     state.menuList = res.result.menu.map(buildMenu);
     console.log("menus", state.menuList, res);
-
-    // res.result.menu.reduce((pre, cur) => {
-    //   const menuItem = buildMenu(cur);
-    //   if (cur.children?.length > 0) {
-    //     menuItem.group = true;
-    //     Object.assign(menuItem, {
-    //       children: cur?.children.map(buildMenu)
-    //     });
-    //   }
-    //   pre.push(menuItem);
-    //
-    //   return pre;
-    // }, []);
   }
 }
 

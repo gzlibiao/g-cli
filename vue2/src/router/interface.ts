@@ -4,8 +4,10 @@ export const ROUTE_NAME_MAP = {
   ABOUT: "about",
   DEMO: "login",
   LOGIN: "demo",
-  NOT_FOUND: "404"
+  NOT_FOUND: "404",
+  AI: "ai"
 } as const;
+
 
 import { type RouteMeta } from "vue-router";
 
@@ -13,7 +15,7 @@ export const routes = [
   {
     path: "/",
     // redirect: "/home/index"
-    redirect: "/demo"
+    redirect: import.meta.env.VITE_BASE_DEFAULT_URL
   },
   {
     path: "/404",
@@ -39,13 +41,23 @@ export const routes = [
       title: "首页",
       icon: "el-icon-s-home"
     },
-    children: [{
-      path: "index",
-      name: ROUTE_NAME_MAP.HOME,
-      component: () => import("../views/Home/index.vue"),
-      meta: {
-        title: "首页"
+    children: [
+      {
+        path: "index",
+        name: ROUTE_NAME_MAP.HOME,
+        component: () => import("../views/Home/index.vue"),
+        meta: {
+          title: "首页"
+        }
+      },
+      {
+        path: "ai",
+        name: ROUTE_NAME_MAP.AI,
+        component: () => import("../views/AI/index.vue"),
+        meta: {
+          title: "ai"
+        }
       }
-    }]
+    ]
   }
 ];

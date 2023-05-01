@@ -1,9 +1,9 @@
 <script setup lang="ts" name="Demo">
 // LIB
-import Aside from "./Aside.vue";
-import Header from "./Header.vue";
-
+import Aside from "./Aside";
+import Header from "./Header";
 import { ThemeEnum, useTheme } from "@/store/modules/theme";
+import { ResultCode } from "@/enums/common.enum";
 
 // STATE
 const stateTheme = useTheme();
@@ -14,7 +14,6 @@ const isNight = computed(() => {
 
 
 // FUNCTION
-
 </script>
 
 <template>
@@ -24,7 +23,9 @@ const isNight = computed(() => {
     <main class="main">
       <Header />
 
-      <router-view class="body"/>
+      <div class="body">
+        <router-view class="container" />
+      </div>
     </main>
   </div>
 </template>
@@ -55,7 +56,6 @@ const isNight = computed(() => {
     .header {
       background: var(--bgColor);
       color: var(--textColor);
-      flex-basis: 50px;
       text-align: right;
 
       display: flex;
@@ -71,12 +71,18 @@ const isNight = computed(() => {
           font-weight: 300;
         }
       }
+
+      flex-basis: 50px;
     }
 
     .body {
-      flex: 1;
       overflow: auto;
-      display: flex;
+      flex-basis: calc(100vh - 50px);
+
+      .container {
+        height: 100%;
+        width: 100%;
+      }
     }
   }
 }

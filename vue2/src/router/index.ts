@@ -17,7 +17,8 @@ router.beforeEach(async (to, from, next) => {
 
   // 动态设置标题
   const appTitle = import.meta.env.VITE_APP_NAME;
-  document.title = to.meta?.title ? `${to.meta.title} - ${appTitle}` : appTitle;
+  // console.log(to,'to')
+  document.title = to.meta?.title || appTitle;
 
   // 3.访问需要登录的路由时，拦截未登录用户
   // initDynamicRouter(userStore.menuList);

@@ -1,16 +1,19 @@
 import type { AxiosInstance, InternalAxiosRequestConfig } from "axios";
 import axios from "axios";
+import { ResultCode } from "@/enums/common.enum";
+
+import { type IResult, toResult } from "gz-sdk";
 
 const serverConfig = {
-  baseURL: import.meta.env.VITE_BASE_SERVER_BASE_URL,
+  baseURL: "/ai" || import.meta.env.VITE_BASE_SERVER_BASE_URL,
   useTokenAuthorization: false
 };
 
-const http = axios.create({
+const http = new Proxy<AxiosInstance>(axios.create({
   baseURL: serverConfig.baseURL, //基础请求地址
-  timeout: 1000 * 10, //请求超时设置
+  timeout: 1 * 1000, //请求超时设置
   withCredentials: false // 跨域请求是否需要携带 cookie
-});
+}), {});
 
 // 请求头
 interface RequestConfig extends InternalAxiosRequestConfig {
@@ -66,26 +69,14 @@ http.interceptors.response.use(
   },
   (error) => {
     removereqQueue(error.config || {}); //请求从请求队列移除
-    let message = "";
-    if (error && error.response) {
-      const errMap: Record<number, string> = {
-        302: "接口重定向了! ",
-        400: "参数不正确! ",
-        401: "您未登录, 或者登录已经超时, 请先登录! ",
-        403: "您还没有权限操作! ",
-        404: "请求地址出错! ",
-        408: "请求超时! ",
-        409: "系统已存在相同数据! ",
-        500: "服务器内部错误! ",
-        501: "服务未实现! ",
-        502: "回答错误! ",
-        503: "服务不可用! ",
-        504: "服务暂时无法访问, 请稍后再试! ",
-        505: "HTTP 版本不受支持! "
-      };
-      message = errMap[error.response.status] || "异常问题, 请联系管理员!";
-    }
-    return Promise.reject(message);
+    console.warn("请求异常===>", typeof error?.response?.status, error);
+    Message.error(ResultCode[Number(error?.response?.status)] || ResultCode.Default);
+
+    return {
+      code: 500,
+      error,
+      msg: ResultCode[Number(error?.response?.status)] || ResultCode.Default
+    } as IResult;
   }
 );
 
@@ -140,12 +131,17 @@ export const put = (url: string, data: {}): Promise<AxiosInstance> => {
   return http({ url, method: "put", data });
 };
 
-export const get = (url: string, data: {} | undefined): Promise<AxiosInstance> => {
+export const get = <T>(url: string, data?: T): Promise<AxiosInstance> => {
   return http({ url, method: "get", data });
 };
 
-export const del = (url: string, data: {} | null): Promise<AxiosInstance> => {
+export const del = <T>(url: string, data?: T): Promise<AxiosInstance> => {
   return http({ url, method: "delete", data });
 };
+
+export function registryHttpUrl(baseUrl: string): Proxy<AxiosInstance> {
+  Object.assign(http, { baseUrl });
+  return http;
+}
 
 export default http;

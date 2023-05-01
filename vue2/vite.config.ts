@@ -110,16 +110,16 @@ export default defineConfig(({ mode }: ConfigEnv) => {
       })
     ],
     resolve: {
+      // extensions: [".ts", ".vue", ".tsx", ".jsx", ".js", ".json"],
       alias: {
         "@": path.resolve(__dirname, "./src")
-        // "@": fileURLToPath(new URL("./src", import.meta.url)),
       }
     },
     css: {
       preprocessorOptions: {
         // 给 sass-loader 传递选项
         scss: {// additionalData 的值就是要注入的字符串
-          additionalData: "@import \"@/assets/styles/common.scss\";"
+          // additionalData: "@import \"@/assets/styles/common.scss\";"
         }
       }
     },

@@ -1,7 +1,7 @@
 <script setup lang="ts" name="Demo">
 // LIB
-import Aside from "./Aside.vue";
-import Header from "./Header.vue";
+import Aside from "./Aside";
+import Header from "./Header";
 
 import { ThemeEnum, useTheme } from "@/store/modules/theme";
 
@@ -24,7 +24,7 @@ const isNight = computed(() => {
     <main class="main">
       <Header />
 
-      <router-view class="body"/>
+      <router-view class="body" />
     </main>
   </div>
 </template>

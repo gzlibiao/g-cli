@@ -1,33 +1,41 @@
 <template>
-  <div>
-    <el-form
-      ref="refForm"
-      :model="loginModel"
-      status-icon
-      :rules="rules"
-      label-width="120px"
-      class="demo-ruleForm"
-    >
-      <el-form-item label="用户名" prop="username">
-        <el-input v-model="loginModel.username" />
-      </el-form-item>
-      <el-form-item label="密码" prop="password">
-        <el-input v-model="loginModel.password" type="password" autocomplete="off" />
-      </el-form-item>
-      <el-form-item label="确认密码" prop="checkPass">
-        <el-input v-model="loginModel.checkPass" type="password" autocomplete="off" />
-      </el-form-item>
-      <el-form-item label="验证码" prop="captcha">
-        <div class="">
-          <el-input v-model="loginModel.captcha" autocomplete="off" />
-          <img :src="codeUrl" @click="rdCode" height="50" width="50" />
-        </div>
-      </el-form-item>
-      <el-form-item>
-        <el-button type="primary" @click="submitForm"> 提 交</el-button>
-        <el-button @click="refForm?.resetFields()"> 重 置</el-button>
-      </el-form-item>
-    </el-form>
+  <div class="login-wrap">
+    <div class="bo-card hover">
+      <el-form
+        ref="refForm"
+        :model="loginModel"
+        status-icon
+        :rules="rules"
+        label-width="80px"
+      >
+        <el-form-item label="用户名" prop="username">
+          <el-input v-model="loginModel.username" />
+        </el-form-item>
+        <el-form-item label="密码" prop="password">
+          <el-input v-model="loginModel.password" type="password" autocomplete="off" />
+        </el-form-item>
+        <el-form-item label="确认密码" prop="checkPass">
+          <el-input v-model="loginModel.checkPass" type="password" autocomplete="off" />
+        </el-form-item>
+        <el-form-item label="验证码" prop="captcha">
+          <div class="">
+            <el-input v-model="loginModel.captcha" autocomplete="off">
+              <template #append>
+                <el-image
+                  class="captcha"
+                  :src="codeUrl"
+                  fit="cover"
+                  @click="rdCode" />
+              </template>
+            </el-input>
+          </div>
+        </el-form-item>
+        <el-form-item>
+          <el-button type="primary" @click="submitForm"> 提 交</el-button>
+          <el-button @click="refForm?.resetFields()"> 重 置</el-button>
+        </el-form-item>
+      </el-form>
+    </div>
   </div>
 </template>
 
@@ -54,7 +62,6 @@ async function rdCode() {
 }
 
 rdCode();
-
 
 const rules = reactive({
   username: [
@@ -88,7 +95,6 @@ const rules = reactive({
 
 const submitForm = async () => {
   const validRes = await refForm.value.validate().catch(console.warn);
-  console.log(validRes, refForm, "refForm", refForm.value);
   if (validRes) {
     const result = await login().catch(Message.error);
 
@@ -100,7 +106,23 @@ const submitForm = async () => {
     }
   }
 };
-
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.login-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+::v-deep .el-input-group__append {
+  padding: 0;
+}
+
+.captcha {
+  width: max-content;
+  height: auto;
+}
+</style>

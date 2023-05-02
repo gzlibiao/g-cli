@@ -13,7 +13,7 @@ const messages = ref<IMessage[]>([]);
 
 async function send(text: string) {
   messages.value.push({ id: GDK.core.guid(), me: true, content: text });
-  const res = await chatAI(text).catch(Message.warn);
+  const res = await chatAI(text).catch(Message.error);
   console.log(res, "res");
 
   if (res.code === 200) {
@@ -26,6 +26,11 @@ async function send(text: string) {
 
 <template>
   <div class="ai-area">
+
+    <ElBacktop visibility-height="0"
+               right="120"
+               bottom="120" target=".ai-area"></ElBacktop>
+
     <MessageArea :messages="messages">
       <template #append>
         <Lottie

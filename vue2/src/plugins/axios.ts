@@ -11,7 +11,7 @@ const serverConfig = {
 
 const http = new Proxy<AxiosInstance>(axios.create({
   baseURL: serverConfig.baseURL, //基础请求地址
-  timeout: 1 * 1000, //请求超时设置
+  timeout: 1000 * 10, //请求超时设置
   withCredentials: false // 跨域请求是否需要携带 cookie
 }), {});
 
@@ -76,7 +76,7 @@ http.interceptors.response.use(
       code: 500,
       error,
       msg: ResultCode[Number(error?.response?.status)] || ResultCode.Default
-    } as IResult;
+    };
   }
 );
 
@@ -123,19 +123,19 @@ function removereqQueue(config: RequestConfig): void {
   }
 }
 
-export const post = <T>(url: string, data: {}): Promise<T> => {
+export const post = <T = IResult>(url: string, data: {}): Promise<T> => {
   return http({ url, method: "post", data });
 };
 
-export const put = (url: string, data: {}): Promise<AxiosInstance> => {
+export const put = <T = IResult>(url: string, data: {}): Promise<T> => {
   return http({ url, method: "put", data });
 };
 
-export const get = <T>(url: string, data?: T): Promise<AxiosInstance> => {
+export const get = <T = IResult>(url: string, data?: T): Promise<T> => {
   return http({ url, method: "get", data });
 };
 
-export const del = <T>(url: string, data?: T): Promise<AxiosInstance> => {
+export const del = <T = IResult>(url: string, data?: T): Promise<T> => {
   return http({ url, method: "delete", data });
 };
 

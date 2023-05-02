@@ -8,7 +8,16 @@ const user: {
 };
 
 
-export const useUser = (): {} => {
+export const useUser = (): {
+  loginModel: {},
+  loggedIn: Ref,
+  login: Function,
+  logout: Function,
+  validatePass: Function,
+  validateCheckPass: Function,
+  validateUsername: Function,
+  getCodeUrl: Function
+} => {
 
   const loginModel = reactive<{
     username: string,

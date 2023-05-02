@@ -14,7 +14,8 @@
     "types": [
       "node",
       "vite/client",
-      "vue"
+      "vue",
+      "@vueuse/core"
     ],
     "baseUrl": ".",
     // 这里需要配置
@@ -29,7 +30,8 @@
       "dom",
       "dom.iterable",
       "ScriptHost",
-      "es2015.proxy"
+      "ESNext.proxy",
+      "@vueuse/core"
     ]
   },
   "include": [
@@ -47,14 +49,14 @@
   ],
   "vueCompilerOptions": {
     "extensions": [
-      //      ".vue",
-      //      ".ts",
-      //      ".js",
-      //      ".tsx",
-      //      ".json",
-      //      "vue",
-      //      "*.vue",
-      //      "ts"
+            ".vue",
+            ".ts",
+            ".js",
+            ".tsx",
+            ".json",
+            "vue",
+            "*.vue",
+            "ts"
     ],
     "target": 2.7
   }

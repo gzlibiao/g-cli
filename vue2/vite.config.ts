@@ -152,8 +152,8 @@ export default defineConfig(({ mode }: ConfigEnv) => {
     },
     css: {
       preprocessorOptions: {
-        scss: { charset: false, additionalData: "@import \"@/assets/styles/common.scss\";" },
-        css: { charset: false }
+        // scss: { charset: false, additionalData: "@import \"@/assets/styles/public.scss\";" },
+        // css: { charset: false }
       }
     },
     server: {

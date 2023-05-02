@@ -12,7 +12,6 @@ const isNight = computed(() => {
   return stateTheme.$state.theme === ThemeEnum.Dark;
 });
 
-
 // FUNCTION
 </script>
 
@@ -21,12 +20,13 @@ const isNight = computed(() => {
     <Aside />
 
     <main class="main">
-      <Header />
+      <Header class="app" />
 
       <div class="body">
         <router-view class="container" />
       </div>
     </main>
+
   </div>
 </template>
 

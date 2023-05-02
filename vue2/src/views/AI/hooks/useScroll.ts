@@ -1,8 +1,8 @@
 export function useScroll<T>(getDom: () => HTMLElement, data: T) {
   const scrollToDown = () => {
-    const dom = getDom();
     nextTick(() => {
-      dom.scrollTop = dom.scrollHeight;
+      const dom = getDom();
+      dom.scrollTop = dom?.scrollHeight;
     });
   };
   const scrollToUp = () => {

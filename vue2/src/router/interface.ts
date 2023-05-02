@@ -1,15 +1,14 @@
-export const ROUTE_NAME_MAP = {
-  LAYOUT: "layout",
-  HOME: "home",
-  ABOUT: "about",
-  DEMO: "login",
-  LOGIN: "demo",
-  NOT_FOUND: "404",
-  AI: "ai"
-} as const;
+export const enum RouteEnum {
+  Layout = "layout",
+  Home = "home",
+  Demo = "demo",
+  Login = "login",
+  NotFound = "404",
+  AI = "ai",
+  Theme = "theme"
+}
 
-
-import { type RouteMeta } from "vue-router";
+// RouteEnum[RouteEnum.Layout.toString() as RouteEnum.AI]
 
 export const routes = [
   {
@@ -18,24 +17,24 @@ export const routes = [
     redirect: import.meta.env.VITE_BASE_DEFAULT_URL
   },
   {
-    path: "/404",
-    name: ROUTE_NAME_MAP.NOT_FOUND,
+    path: "/" + RouteEnum.NotFound,
+    name: RouteEnum.NotFound,
     component: () => import("@/views/ErrorPage/404.vue")
   },
   {
-    path: "/demo",
-    name: ROUTE_NAME_MAP.DEMO,
+    path: "/" + RouteEnum.Demo,
+    name: RouteEnum.Demo,
     component: () => import("@/views/Demo/index.vue")
   },
   {
-    path: "/login",
-    name: ROUTE_NAME_MAP.LOGIN,
+    path: "/" + RouteEnum.Login,
+    name: RouteEnum.Login,
     component: () => import("@/views/Account/Login/index.vue")
   },
   {
     path: "/home",
     redirect: "/home/index",
-    name: ROUTE_NAME_MAP.LAYOUT,
+    name: RouteEnum.Layout,
     component: () => import("@/layout/index.vue"),
     meta: {
       title: "首页",
@@ -44,7 +43,7 @@ export const routes = [
     children: [
       {
         path: "index",
-        name: ROUTE_NAME_MAP.HOME,
+        name: RouteEnum.Home,
         component: () => import("../views/Home/index.vue"),
         meta: {
           title: "首页"
@@ -52,12 +51,24 @@ export const routes = [
       },
       {
         path: "ai",
-        name: ROUTE_NAME_MAP.AI,
+        name: RouteEnum.AI,
         component: () => import("../views/AI/index.vue"),
         meta: {
           title: "ai"
         }
+      },
+      {
+        path: "theme",
+        name: RouteEnum.Theme,
+        component: () => import("../views/Theme/index.vue"),
+        meta: {
+          title: "主题"
+        }
       }
     ]
+  },
+  {
+    path: "/*",
+    redirect: "/" + RouteEnum.NotFound
   }
 ];

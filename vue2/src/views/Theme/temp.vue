@@ -68,7 +68,7 @@
 </template>
 
 <script setup lang="ts" name="Theme">
-// import("@/assets/theme/custom-theme/index.css");
+// import("@/assets/theme/custom-theme/index.scss");
 import("@/assets/theme/custom-theme/theme-summer.css");
 import PackageInfo from "../../../package.json";
 

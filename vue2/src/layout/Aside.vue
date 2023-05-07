@@ -1,29 +1,39 @@
 <template>
-  <aside class="aside">
-    <el-menu class="bo-menu">
-      <el-submenu v-for="(menu,idx) in state.menuList" :index="menu.key" class="bo-menu__item">
+  <aside class="aside-wrap">
+    <el-menu :collapse="isCollapse"
+             :collapse-transition="false"
+             router
+             class="bo-menu"
+             background-color="var(--bgColor)"
+             text-color="var(--textColor)"
+             active-background-color="var(--activeTextColor)"
+             active-text-color="var(--activeBgColor)">
+      <el-submenu
+        popper-class="menu-popper" v-for="(menu,idx) in state.menuList" :index="menu.key" class="bo-menu__item">
         <template #title>
           <i class="el-icon-message"></i>
-          <span class="bo-menu__item__text">
+          <span class="bo-menu__item__text1">
             {{ menu.text }}
           </span>
         </template>
 
         <el-menu-item
-          v-for="(subMenu, subIdx) in menu.children"
+          v-for="(subMenu) in menu.children"
           :index="subMenu.id"
         >{{ subMenu.text }}
         </el-menu-item>
       </el-submenu>
     </el-menu>
   </aside>
-
 </template>
 
 <script setup lang="ts" name="Aside">
 import { getMenuList } from "@/api/system/menu";
+import { useTheme } from "@/store/theme";
 
-const state = reactive({
+const { isCollapse } = useTheme();
+
+const state = ref({
   menuList: []
 });
 
@@ -51,8 +61,8 @@ function buildMenu<T>(menuItem: any): IMenu {
 async function listMenu() {
   const res = await getMenuList().catch(Message.error);
   if (res.success) {
-    state.menuList = res.result.menu.map(buildMenu);
-    console.log("menus", state.menuList, res);
+    state.value.menuList = res.result.menu.map(buildMenu);
+    console.log("menus", state.value.menuList, res);
   }
 }
 
@@ -60,61 +70,12 @@ listMenu();
 </script>
 
 <style scoped lang="scss">
-.aside {
-  overflow: auto;
-  background: var(--bgColor);
-  color: var(--textColor);
-  flex-basis: 200px;
+.aside-wrap {
+  overflow: hidden auto;
+}
 
-  .el-menu {
-    color: var(--textColor);
-    background-color: var(--bgColor);
-
-    .el-menu-item {
-      min-width: 40px;
-      overflow: hidden;
-
-      &:hover {
-        background-color: var(--hoverBg);
-      }
-    }
-
-    .el-submenu {
-      &.is-active {
-        .el-submenu__title {
-          color: var(--textColor);
-          background: var(--bgColor);
-
-          i {
-            color: var(--textColor);
-          }
-        }
-      }
-
-      ::v-deep .el-submenu__title {
-        display: flex;
-        align-items: center;
-        color: var(--textColor);
-        background: var(--bgColor);
-
-        &:hover {
-          background-color: var(--textColor);
-          color: var(--bgColor);
-        }
-      }
-
-      .el-submenu__icon-arrow {
-        margin-top: -5px;
-      }
-
-      .el-menu-item {
-        padding-left: 50px !important;
-
-        &:hover {
-          background-color: var(--hoverBg);
-        }
-      }
-    }
-  }
+::v-deep .menu-popper {
+  background: #f00;
+  color: blue;
 }
 </style>

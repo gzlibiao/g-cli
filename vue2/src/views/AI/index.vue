@@ -1,13 +1,9 @@
-<script setup lang="ts">
+<script setup lang="ts" name="AI">
 import InputArea from "./components/InputArea.vue";
 import MessageArea from "@/views/AI/components/MessageArea.vue";
 import { chatAI } from "@/api/ai/ai";
 
-interface IMessage {
-  content: string,
-  id: string,
-  me: boolean
-}
+import type {  IMessage } from "@/types/chatTypes";
 
 const messages = ref<IMessage[]>([]);
 
@@ -26,12 +22,7 @@ async function send(text: string) {
 
 <template>
   <div class="ai-area">
-
-    <ElBacktop visibility-height="0"
-               right="120"
-               bottom="120" target=".ai-area"></ElBacktop>
-
-    <MessageArea :messages="messages">
+    <MessageArea id="msgArea" :messages="messages">
       <template #append>
         <Lottie
           class="bo-mx-auto"
@@ -42,6 +33,10 @@ async function send(text: string) {
       </template>
     </MessageArea>
 
+    <el-backtop target="#msgArea">
+      <el-icon name="top"></el-icon>
+    </el-backtop>
+
     <InputArea @query="send" class="bo-mt-auto input-area" />
   </div>
 
@@ -49,7 +44,7 @@ async function send(text: string) {
 
 <style scoped lang="scss">
 .ai-area {
-  background-image: url("ai-bg.png");
+  background-image: url("img/ai-bg.png");
   background-repeat: repeat;
   background-attachment: fixed;
   padding: 0;
@@ -69,5 +64,9 @@ async function send(text: string) {
     overflow: hidden;
     padding: 0 2px 4px 2px;
   }
+}
+
+::v-deep .el-backtop {
+  margin-bottom: 10px
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div ref="animation" :style="{ width, height }"></div>
+  <div v-on="$listeners" ref="animation" :style="{ width, height }"></div>
 </template>
 
 <script name="Lottie">

@@ -33,7 +33,6 @@ export function useScroll<T>(getDom: () => HTMLElement, data: T) {
     //监听滚动事件
     dom.addEventListener("scroll", scrolling);
 
-
     onUnmounted(() => {
       // 销毁监听滚动事件
       dom.removeEventListener("scroll", scrolling);

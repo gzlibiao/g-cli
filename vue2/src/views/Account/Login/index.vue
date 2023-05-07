@@ -39,7 +39,7 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script lang="ts" setup name="Login">
 import { useUser } from "./hooks/useAccount";
 
 const refForm = ref();
@@ -63,7 +63,7 @@ async function rdCode() {
 
 rdCode();
 
-const rules = reactive({
+const rules = ref({
   username: [
     {
       validator: (rule: {}, value: string, call: Function): void =>
@@ -100,10 +100,10 @@ const submitForm = async () => {
 
     if (result.success) {
       Message.success("登录成功");
-      if (result) {
-        location.href = "/";
-      }
+      location.href = "/";
+      return;
     }
+    rdCode();
   }
 };
 </script>

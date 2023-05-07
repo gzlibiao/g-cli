@@ -2,22 +2,17 @@
 // LIB
 import Aside from "./Aside";
 import Header from "./Header";
-import { ThemeEnum, useTheme } from "@/store/modules/theme";
-import { ResultCode } from "@/enums/common.enum";
+import { useTheme } from "@/store/theme";
 
 // STATE
-const stateTheme = useTheme();
-
-const isNight = computed(() => {
-  return stateTheme.$state.theme === ThemeEnum.Dark;
-});
+const { isNight } = useTheme();
 
 // FUNCTION
 </script>
 
 <template>
-  <div class="layout " :class="isNight?'theme-dark':'theme-light'">
-    <Aside />
+  <div class="layout" :class="isNight?'theme-dark':'theme-light'">
+    <Aside class="aside" />
 
     <main class="main">
       <Header class="app" />
@@ -36,16 +31,24 @@ const isNight = computed(() => {
   width: 100%;
   overflow: hidden;
   display: grid;
-  grid-template-columns: minmax(40px, 200px) minmax(400px, 1fr);
+  grid-template-columns: auto minmax(400px, 1fr);
 
   &.theme-dark {
     --bgColor: var(--dark);
-    --textColor: var(--light);
+    --textColor: #000;
+    --activeTextColor: #000;
+    --activeBgColor: #000;
   }
 
   &.theme-light {
     --bgColor: var(--light);
-    --textColor: var(--dark);
+    --textColor: #000;
+    --activeTextColor: #000;
+    --activeBgColor: #000;
+  }
+
+  .aside {
+    width: auto;
   }
 
   .main {
@@ -56,6 +59,7 @@ const isNight = computed(() => {
     .header {
       background: var(--bgColor);
       color: var(--textColor);
+
       text-align: right;
 
       display: flex;

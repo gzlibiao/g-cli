@@ -1,12 +1,14 @@
 <script setup lang="ts">
+import type {  IMessage } from "@/types/chatTypes";
 const props = defineProps<{
-  messages: []
+  messages: IMessage[]
 }>();
 
 import { useScroll } from "@/views/AI/hooks/useScroll";
 
-const refMessage = ref();
-const { scrollToDown } = useScroll(() => refMessage.value, props.messages);
+const $message = ref();
+
+const { scrollToDown } = useScroll(() => $message.value, props.messages);
 
 watch(() => props.messages, () => {
   scrollToDown();
@@ -17,7 +19,7 @@ watch(() => props.messages, () => {
 </script>
 
 <template>
-  <div class="message-area" ref="refMessage">
+  <div class="message-area" ref="$message">
     <div class="assistant-message" v-for="msg in messages" :key="msg.id">
       <div class="bo-flex-shrink-0" v-if="!msg.me">
         <div class="bo-card bo-p-mini ">

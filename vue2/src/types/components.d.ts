@@ -20,6 +20,7 @@ declare module 'vue' {
     ElDropdownMenu: typeof import('element-ui/lib/dropdown-menu')['default']
     ElForm: typeof import('element-ui/lib/form')['default']
     ElFormItem: typeof import('element-ui/lib/form-item')['default']
+    ElIcon: typeof import('element-ui/lib/icon')['default']
     ElImage: typeof import('element-ui/lib/image')['default']
     ElInput: typeof import('element-ui/lib/input')['default']
     ElLink: typeof import('element-ui/lib/link')['default']

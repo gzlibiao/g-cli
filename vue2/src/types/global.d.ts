@@ -24,6 +24,7 @@ declare module "axios" {
     "device-id": string; // 设备ID，由前端根据设备信息生成
   }
 }
+
 /* eslint-disable no-unused-vars */
 import Vue, { VNode } from 'vue'
 
@@ -38,20 +39,17 @@ declare global {
     }
   }
 }
-// declare module "vue-router" {
-//   import { getRouter, getRoute } from "vue-router";
-//
-//   export { getRoute, getRouter };
-//
-//   export interface RouteMeta {
-//     title: string; // 路由标题
-//     icon?: string; // 路由的图标
-//     authRequired?: boolean; // 是否登录才能访问
-//     showInMenu?: boolean; // 是否显示在首页菜单里
-//     activeMenu?: string; // 当前路由为活跃路由时激活的菜单，不配置时默认为route.path
-//     accessible?: boolean; // 当前登录的用户是否有权限访问，不能访问时路由组件将会渲染成 401.vue，无论component配置成了什么
-//     inner?: boolean; // 是否为内部路由，为外部路由时在菜单点击将调用window.open打开一个新窗口
-//     canClose?: boolean; // 在 tabBar 中是否可关闭
-//     keepAlive?: boolean; // 是否缓存路由组件
-//   }
-// }
+
+declare module "vue-router" {
+  export interface RouteMeta {
+    title: string; // 路由标题
+    icon?: string; // 路由的图标
+    authRequired?: boolean; // 是否登录才能访问
+    showInMenu?: boolean; // 是否显示在首页菜单里
+    activeMenu?: string; // 当前路由为活跃路由时激活的菜单，不配置时默认为route.path
+    accessible?: boolean; // 当前登录的用户是否有权限访问，不能访问时路由组件将会渲染成 401.vue，无论component配置成了什么
+    inner?: boolean; // 是否为内部路由，为外部路由时在菜单点击将调用window.open打开一个新窗口
+    canClose?: boolean; // 在 tabBar 中是否可关闭
+    keepAlive?: boolean; // 是否缓存路由组件
+  }
+}

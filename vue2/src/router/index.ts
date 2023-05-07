@@ -1,34 +1,63 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import { routes } from "./interface";
+import { defaultRoutes, layoutRoute } from "./constant";
+import { routes, layoutRoutes } from "./routes";
+import { beforeGuard, afterGuard } from "./guards";
+
 Vue.use(VueRouter);
+
+export function useRouter() {
+  return router;
+}
+
+export function useRoute() {
+  return router.currentRoute;
+}
+
+// 解决重复点击导航路由报错
+const originalPush = VueRouter.prototype.push;
+VueRouter.prototype.push = function push(location) {
+  return (originalPush.call(this, location) as unknown as Promise<any>).catch(err => err);
+};
+
+function getRoutes() {
+  const result = [].concat(routes as []).concat({ ...layoutRoute, children: layoutRoutes }).concat(defaultRoutes as []);
+  return result;
+}
 
 const router = new VueRouter({
   mode: "history",
-  base: '/',//import.meta.env.VITE_APP_BASE_URL
-  scrollBehavior() {
+  base: import.meta.env.VITE_BASE_URL,
+  scrollBehavior(from, to) {
     return { x: 0, y: 0 };
   },
-  routes,
+  routes: getRoutes()
 });
 
 router.beforeEach(async (to, from, next) => {
-  // const userStore = useUserStore();
+  const nextGuard = (guardResult: string | boolean) => {
+    if (!guardResult) {
+      return;
+    }
 
-  // 动态设置标题
-  const appTitle = import.meta.env.VITE_APP_NAME;
-  // console.log(to,'to')
-  document.title = to.meta?.title || appTitle;
+    if (typeof guardResult === "boolean") {
+      const guard = beforeGuard.pop();
+      if (!guard) {
+        next();
+        return;
+      }
 
-  // 3.访问需要登录的路由时，拦截未登录用户
-  // initDynamicRouter(userStore.menuList);
+      return guard(to, from, nextGuard);
+    }
 
-  // 4.未匹配到的路由跳转到404
-  if (to.matched.length === 0) {
-    return next('/404');
-  }
+    next(guardResult);
+  };
 
-  next();
+  nextGuard(true);
+});
+
+router.afterEach((to, from) => {
+  afterGuard.forEach(guard => guard(to, from));
 });
 
 export default router;

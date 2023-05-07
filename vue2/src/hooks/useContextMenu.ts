@@ -14,9 +14,7 @@ import { onUnmounted, getCurrentInstance } from "vue";
 
 export async function useEmit(emitName: string, emitValue: any) {
   const ctx = getCurrentInstance();
-  console.log(ctx, emitName, "getInstall");
 
   const hooks = await ctx?.proxy.$emit(emitName, emitValue, () => console.warn);
-  console.log(hooks, "hooks");
   return ctx?.proxy?.$emit;
 }

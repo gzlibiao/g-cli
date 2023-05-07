@@ -1,21 +1,8 @@
 @import "reset";
-@import "common.scss";
 @import "ui.scss";
+@import "common.scss";
 @import "patch.scss";
 
-.bo-menu {
-  overflow: hidden;
-}
-
-.bo-menu .el-submenu__title {
-  display: flex !important;
-  padding: 0 1vmin !important;
-  min-width: 100px;
-  overflow: hidden;
-
-  .bo-menu__item__text {
-    flex: 1;
-    min-width: 80px;
-    height: fit-content;
-  }
+.week-mode{
+  filter: invert(80%);
 }

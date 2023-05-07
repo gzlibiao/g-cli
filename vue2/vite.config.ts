@@ -14,7 +14,7 @@ export default defineConfig(({ mode }: ConfigEnv) => {
   const env = loadEnv(mode, root);
 
   // loadEnv读取的布尔类型是一个字符串。这个函数可以转换为布尔类型
-  const { VITE_APP_NAME } =
+  const { VITE_TITLE } =
     env;
 
   // console.log('path=======>',path.resolve(__dirname, "./src"),path.resolve(root, "src/assets/svg"))
@@ -32,13 +32,10 @@ export default defineConfig(({ mode }: ConfigEnv) => {
         imports: [
           "vue",
           "vue-router",
-          "pinia",
           {
-            // named imports
             "@vueuse/core": [
               // import { useMouse } from '@vueuse/core',
               "useMouse",
-              // alias
               // import { useFetch as useMyFetch } from '@vueuse/core',
               ["useFetch", "useMyFetch"]
             ],
@@ -109,7 +106,7 @@ export default defineConfig(({ mode }: ConfigEnv) => {
             template: "public/index.html",
             injectOptions: {
               data: {
-                title: VITE_APP_NAME
+                title: VITE_TITLE
               },
               tags: [
                 {
@@ -128,7 +125,7 @@ export default defineConfig(({ mode }: ConfigEnv) => {
             template: "public/app.html",
             injectOptions: {
               data: {
-                title: VITE_APP_NAME
+                title: VITE_TITLE
               },
               tags: [
                 {
@@ -147,12 +144,13 @@ export default defineConfig(({ mode }: ConfigEnv) => {
     resolve: {
       extensions: [".js", ".json", ".jsx", ".mjs", ".ts", ".tsx", ".vue"],
       alias: {
-        "@": path.resolve(__dirname, "./src")
+        "@": path.resolve(__dirname, "./src"),
+        "@m": path.resolve(__dirname, "./node_modules")
       }
     },
     css: {
       preprocessorOptions: {
-        // scss: { charset: false, additionalData: "@import \"@/assets/styles/public.scss\";" },
+        // scss: { charset: false, additionalData: "@import \"@/assets/styles/patch.scss\";" },
         // css: { charset: false }
       }
     },

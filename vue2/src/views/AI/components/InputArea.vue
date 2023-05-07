@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { User, Message } from "@/types/chatTypes";
+import type { User, IMessage } from "@/types/chatTypes";
 import { useChatStore } from "@/store/chatStore";
 import { chatAI } from "@/api/ai/ai";
 // import { createCompletion } from "@/api/openAIApi";

@@ -5,6 +5,7 @@ import pinia from "./store";
 import "virtual:svg-icons-register";
 
 import("@/assets/styles/public.scss");
+import("@/assets/theme/style/theme/index.scss");
 
 new Vue({
   el: "#app",

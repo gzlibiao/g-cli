@@ -10,3 +10,9 @@ export interface Message {
   text: string;
   timestamp: number | string;
 }
+
+export interface IMessage {
+  me?: boolean,
+  content?:string
+  id:string
+}

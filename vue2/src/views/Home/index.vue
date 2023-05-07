@@ -20,7 +20,6 @@
 // LIB
 import { STORE_TOKEN_KEY } from "@/utils/core";
 // STATE
-console.log(STORE_TOKEN_KEY, "STORE_TOKEN_KEY");
 
 // FUNCTION
 

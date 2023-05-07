@@ -26,5 +26,6 @@ const svgClass = computed(() => {
 <style scoped lang="scss">
 .svg-icon {
   fill: currentColor;
+  cursor: pointer;
 }
 </style>

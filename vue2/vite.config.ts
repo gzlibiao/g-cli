@@ -71,8 +71,17 @@ export default defineConfig(({ mode }: ConfigEnv) => {
               from: "element-ui",
               name: "Message",
               sideEffects: [
-                "element-ui/lib/theme-chalk/base.css",
                 "element-ui/lib/theme-chalk/message.css"
+              ]
+            };
+          }
+
+          if (name === "MessageBox") {
+            return {
+              from: "element-ui",
+              name: "MessageBox",
+              sideEffects: [
+                "element-ui/lib/theme-chalk/message-box.css"
               ]
             };
           }

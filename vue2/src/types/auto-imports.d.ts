@@ -6,6 +6,7 @@ export {}
 declare global {
   const EffectScope: typeof import('vue')['EffectScope']
   const GDK: typeof import('gz-sdk')['default']
+  const Message: typeof import('element-ui')['Message']
   const Vue: typeof import('vue')['default']
   const axios: typeof import('axios')['default']
   const computed: typeof import('vue')['computed']
